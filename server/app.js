@@ -29,9 +29,21 @@ app.listen(port, function(req, res){
 //     res.sendFile(path.resolve('../public/views/index.html'));
 // });
 
+//schema
+var petSchema = mongoose.Schema ({
+  name: String,
+  species:String,
+  age: Number,
+  imageUrl: String
+});
+
+//model
+var pet = mongoose.model( 'pet', petSchema );
+
 app.post('/addPet', function(req, res){
   console.log('in addPet:', req.body);
   var newPet = pet(req.body);
+  // newPet.imageUrl = req.body.imageUrl;
   console.log(newPet);
   newPet.save();
   res.send('post sent', 200);
@@ -40,18 +52,7 @@ app.post('/addPet', function(req, res){
 app.get('/getPet', function(req,res){
   console.log('getPet hit');
   pet.find().then(function(data){
+    console.log("data:", data);
     res.send(data);
   });
 });
-
-
-//schema
-var petSchema = mongoose.Schema ({
-  name: String,
-  species:String,
-  age: Number,
-  ImageUrl: String
-});
-
-//model
-var pet = mongoose.model( 'pet', petSchema );

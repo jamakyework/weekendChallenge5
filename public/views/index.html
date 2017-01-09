@@ -17,13 +17,13 @@
           <p> Click button to add new pet </p>
           Name: <input type="text" placeholder="name" ng-model="name">
           Species: <input type="text" placeholder="species" ng-model="species">
-          Age: <input type="number" placeholder='age' ng-model="age">
+          Age: <input type="number" placeholder="age" ng-model="age">
           ImageUrl: <input type="text" placeholder="www...." ng-model="imageUrl">
           <button type="button" name="button" ng-click="addPet()">Add Pet</button>
           <h2> Pets </h2>
           <div ng-repeat="pet in pets">
-          {{pet.name}} {{pet.species}} {{pet.age}}
-              <img ng-src="{{pet.imageUrl}}" alt="image of pets">
+          <p>{{pet.name}} {{pet.species}} {{pet.age}}</p>
+          <img ng-src="{{pet.imageUrl}}">
           </div>
         </div> <!--end controller-->
   </body> <!--end app-->

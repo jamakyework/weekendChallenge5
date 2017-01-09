@@ -11,7 +11,7 @@ router.post ('/', function (req, res){
     Name: req.body.pet,
     Species: req.body.species,
     Age: req.body.age,
-    ImageUrl: req.body.imageUrl
+    imageUrl: req.body.imageUrl
   }); //end addPet obj
 });//end post
 
