@@ -1,12 +1,12 @@
 var mongoose= require('mongoose');
-var schema = mongoose.schema;
-var pets= mongoose.model('pet', petSchema);
+var schema = mongoose.Schema;
+var pet= mongoose.model('pet', petSchema);
 
-var petSchema = new Schema ({
+var petSchema = mongoose.Schema ({
   name: String,
   species:String,
   age: Number,
   ImageUrl: String
 });
 
-module.exports= pets;
+module.exports= pet;

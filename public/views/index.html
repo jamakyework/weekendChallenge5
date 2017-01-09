@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="/vendors/angular.min.js" charset="utf-8"></script>
-    <script src="/scripts/client.js" charset="utf-8"></script>
-    <title>Pet Directory</title>
+
+<head>
+      <meta charset="utf-8">
+      <script src="vendors/angular.min.js" charset="utf-8"></script>
+      <script src="scripts/client.js" charset="utf-8"></script>
+      <title>Pet Directory</title>
   </head>
-  <body>
-    <h1> Pet Directory </h1>
-    <div>
-      Welcome to the Pet Directory
-      Please enter pet information
-      Click submit to add new pet
-    </div>
-    Name: <input type="text" ng-model='name' placeholder="name">
-    Species: <input type="text" ng-model='species' placeholder="species">
-    Age: <input type="number" ng-model='age' placeholder='age'>
-    ImageUrl: <input type="text" ng-model='imageUrl' placeholder="www....">
-    <button type="button" name="button" ng-click="enterPet">Submit</button>
-    <div ng-repeat="pets in petsDb">
-    Name: {{pet.name}} Species: {{pet.Species}} Age: {{pet.age}}
+
+  <body ng-app='myApp'> <!--begin app-->
+      <h1> Pet Directory </h1>
+      <div ng-controller='PetController'> <!--begin controller-->
+          <h2> Instructions </h2>
+          <p> Welcome to the Pet Directory </p>
+          <p> Enter pet information </p>
+          <p> Click button to add new pet </p>
+          Name: <input type="text" placeholder="name" ng-model="name">
+          Species: <input type="text" placeholder="species" ng-model="species">
+          Age: <input type="number" placeholder='age' ng-model="age">
+          ImageUrl: <input type="text" placeholder="www...." ng-model="imageUrl">
+          <button type="button" name="button" ng-click="addPet()">Add Pet</button>
+          <h2> Pets </h2>
+          <div ng-repeat="pet in pets">
+          {{pet.name}} {{pet.species}} {{pet.age}}
               <img ng-src="{{pet.imageUrl}}" alt="image of pets">
-    </div>
-  </body>
+          </div>
+        </div> <!--end controller-->
+  </body> <!--end app-->
+
 </html>
