@@ -9,13 +9,18 @@
   <body>
     <h1> Pet Directory </h1>
     <div>
-      Welcome to the Pet Directory. Please enter pet information to save to
-      application.
+      Welcome to the Pet Directory
+      Please enter pet information
+      Click submit to add new pet
     </div>
-    Name: <input type="text" name="" value="">
-    Species:<input type="text" name="" value="">
-    Age:<input type="number" name="" value="">
-    ImageUrl:<input type="text" name="" value="">
-    <button type="button" name="button">Enter Pet</button>
+    Name: <input type="text" ng-model='name' placeholder="name">
+    Species: <input type="text" ng-model='species' placeholder="species">
+    Age: <input type="number" ng-model='age' placeholder='age'>
+    ImageUrl: <input type="text" ng-model='imageUrl' placeholder="www....">
+    <button type="button" name="button" ng-click="enterPet">Submit</button>
+    <div ng-repeat="pets in petsDb">
+    Name: {{pet.name}} Species: {{pet.Species}} Age: {{pet.age}}
+              <img ng-src="{{pet.imageUrl}}" alt="image of pets">
+    </div>
   </body>
 </html>
